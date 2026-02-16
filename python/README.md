@@ -222,8 +222,9 @@ from apiverve_botdetector.apiClient import BotdetectorAPIClient
 
 api = BotdetectorAPIClient("[YOUR_API_KEY]")
 
+query = { "ua": "Googlebot/2.1 (+http://www.google.com/bot.html)" }
+
 try:
-    query = { "ua": "Googlebot/2.1 (+http://www.google.com/bot.html)" }
     result = api.execute(query)
     print(result)
 finally:
