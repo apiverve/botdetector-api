@@ -1,6 +1,6 @@
 # Bot Detector API
 
-Bot Detector is an API that analyzes user agent strings to identify bots, crawlers, and automated software. Useful for security, analytics, and access control.
+Bot Detector analyzes user agent strings to identify bots, crawlers, and automated software. It matches against a database of known bots and adds heuristics that catch automated clients not in the database, returning the bot's category, reputation and a composite risk score. Useful for security, analytics, and access control.
 
 ![Build Status](https://img.shields.io/badge/build-passing-green)
 ![Code Climate](https://img.shields.io/badge/maintainability-B-purple)
@@ -127,8 +127,13 @@ async function makeRequest() {
     "bot": {
       "name": "Googlebot",
       "category": "search_engine",
-      "url": "http://www.google.com/bot.html"
-    }
+      "url": "http://www.google.com/bot.html",
+      "reputation": "trusted",
+      "shouldBlock": false
+    },
+    "isAutomated": true,
+    "riskScore": 0,
+    "riskLevel": "low"
   }
 }
 ```
