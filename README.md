@@ -1,6 +1,6 @@
 # [Bot Detector API](https://apiverve.com/marketplace/botdetector?utm_source&#x3D;github&amp;utm_medium&#x3D;readme)
 
-Bot Detector is an API that analyzes user agent strings to identify bots, crawlers, and automated software. Useful for security, analytics, and access control.
+Bot Detector analyzes user agent strings to identify bots, crawlers, and automated software. It matches against a database of known bots and adds heuristics that catch automated clients not in the database, returning the bot&#x27;s category, reputation and a composite risk score. Useful for security, analytics, and access control.
 
 The Bot Detector API provides a simple, reliable way to integrate bot detector functionality into your applications. Built for developers who need production-ready bot detector capabilities without the complexity of building from scratch.
 
@@ -30,7 +30,11 @@ The Bot Detector API provides a simple, reliable way to integrate bot detector f
 ```javascript
 async function callBotDetectorAPI() {
     try {
-        const response = await fetch('https://api.apiverve.com/v1/botdetector', {
+        const params = new URLSearchParams({
+            ua: 'Googlebot/2.1 (+http://www.google.com/bot.html)'
+        });
+
+        const response = await fetch(`https://api.apiverve.com/v1/botdetector?${params}`, {
             method: 'GET',
             headers: {
                 'x-api-key': 'YOUR_API_KEY_HERE'
@@ -50,7 +54,7 @@ callBotDetectorAPI();
 ### Using cURL
 
 ```bash
-curl -X GET "https://api.apiverve.com/v1/botdetector?param=value" \
+curl -X GET "https://api.apiverve.com/v1/botdetector?ua=Googlebot%2F2.1%20(%2Bhttp%3A%2F%2Fwww.google.com%2Fbot.html)" \
   -H "x-api-key: YOUR_API_KEY_HERE"
 ```
 
@@ -150,7 +154,7 @@ go get github.com/apiverve/botdetector-api/go
 |---------|---------|
 | **Multi-language SDKs** | Native packages for JavaScript, Python, C#, Go, and Android |
 | **Simple Integration** | Single API key authentication, consistent response format |
-| **Production Ready** | 99.9% uptime, fast response times, used by thousands of developers |
+| **Production Ready** | 99.9% uptime SLA, served from 24 global regions |
 | **Comprehensive Docs** | Full examples, OpenAPI spec, and dedicated support |
 
 ---
@@ -169,7 +173,7 @@ go get github.com/apiverve/botdetector-api/go
 The Bot Detector API is commonly used for:
 
 - **Web Applications** - Add bot detector features to your frontend or backend
-- **Mobile Apps** - Native SDKs for iOS and Android development
+- **Mobile Apps** - Native SDKs for Android development
 - **Automation** - Integrate with n8n, Zapier, or custom workflows
 - **SaaS Products** - Enhance your product with bot detector capabilities
 - **Data Pipelines** - Process and analyze data at scale
