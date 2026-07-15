@@ -17,11 +17,14 @@ def call_botdetector_api():
     Make a GET request to the Bot Detector API
     """
     try:
+        # Query parameters
+        params &#x3D; {&#x27;ua&#x27;: &#x27;Googlebot/2.1 (+http://www.google.com/bot.html)&#x27;}
+
         headers = {
             'x-api-key': API_KEY
         }
 
-        response = requests.get(API_URL, headers=headers)
+        response = requests.get(API_URL, headers=headers, params=params)
 
         # Raise exception for HTTP errors
         response.raise_for_status()
