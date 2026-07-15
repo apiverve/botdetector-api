@@ -12,8 +12,12 @@ public class BasicExample {
         BotDetectorAPIClient client = new BotDetectorAPIClient("YOUR_API_KEY_HERE");
 
         try {
-            // Execute the API request (no parameters required)
-            APIResponse response = client.execute(null);
+            // Query parameters
+            Map&lt;String, Object&gt; parameters &#x3D; new HashMap&lt;&gt;();
+        parameters.put(&quot;ua&quot;, &quot;Googlebot/2.1 (+http://www.google.com/bot.html)&quot;);
+
+            // Execute the API request
+            APIResponse response = client.execute(parameters);
 
             // Check if the request was successful
             if (response.isSuccess()) {
