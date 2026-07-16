@@ -25,6 +25,9 @@ namespace APIVerve.API.BotDetector
 
         [JsonProperty("data")]
         public Data Data { get; set; }
+
+        [JsonProperty("premium")]
+        public Premium Premium { get; set; }
     }
 
     public partial class Data
@@ -33,10 +36,19 @@ namespace APIVerve.API.BotDetector
         public string UserAgent { get; set; }
 
         [JsonProperty("isBot")]
-        public bool IsBot { get; set; }
+        public bool? IsBot { get; set; }
 
         [JsonProperty("bot")]
         public Bot Bot { get; set; }
+
+        [JsonProperty("isAutomated")]
+        public bool? IsAutomated { get; set; }
+
+        [JsonProperty("riskScore")]
+        public long? RiskScore { get; set; }
+
+        [JsonProperty("riskLevel")]
+        public string RiskLevel { get; set; }
     }
 
     public partial class Bot
@@ -49,5 +61,23 @@ namespace APIVerve.API.BotDetector
 
         [JsonProperty("url")]
         public Uri Url { get; set; }
+
+        [JsonProperty("reputation")]
+        public string Reputation { get; set; }
+
+        [JsonProperty("shouldBlock")]
+        public bool? ShouldBlock { get; set; }
+    }
+
+    public partial class Premium
+    {
+        [JsonProperty("message")]
+        public string Message { get; set; }
+
+        [JsonProperty("upgrade_url")]
+        public Uri UpgradeUrl { get; set; }
+
+        [JsonProperty("locked_fields")]
+        public string[] LockedFields { get; set; }
     }
 }
