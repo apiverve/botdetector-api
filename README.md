@@ -1,13 +1,13 @@
-# [Bot Detector API](https://apiverve.com/marketplace/botdetector?utm_source&#x3D;github&amp;utm_medium&#x3D;readme)
+# [Bot Detector API](https://apiverve.com/marketplace/botdetector?utm_source&#x3D;github&amp;utm_medium&#x3D;referral&amp;utm_content&#x3D;readme)
 
 Bot Detector analyzes user agent strings to identify bots, crawlers, and automated software. It matches against a database of known bots and adds heuristics that catch automated clients not in the database, returning the bot&#x27;s category, reputation and a composite risk score. Useful for security, analytics, and access control.
 
 The Bot Detector API provides a simple, reliable way to integrate bot detector functionality into your applications. Built for developers who need production-ready bot detector capabilities without the complexity of building from scratch.
 
-**[View API Details →](https://apiverve.com/marketplace/botdetector?utm_source&#x3D;github&amp;utm_medium&#x3D;readme)**
+**[View API Details →](https://apiverve.com/marketplace/botdetector?utm_source&#x3D;github&amp;utm_medium&#x3D;referral&amp;utm_content&#x3D;readme)**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![API Status](https://img.shields.io/badge/Status-Active-green.svg)](https://apiverve.com/marketplace/botdetector?utm_source&#x3D;github&amp;utm_medium&#x3D;readme)
+[![API Status](https://img.shields.io/badge/Status-Active-green.svg)](https://apiverve.com/marketplace/botdetector?utm_source&#x3D;github&amp;utm_medium&#x3D;referral&amp;utm_content&#x3D;readme)
 [![Method](https://img.shields.io/badge/Method-GET-blue.svg)](#)
 [![Platform](https://img.shields.io/badge/Platform-Multi--Platform-orange.svg)](#installation)
 
@@ -31,7 +31,8 @@ The Bot Detector API provides a simple, reliable way to integrate bot detector f
 async function callBotDetectorAPI() {
     try {
         const params = new URLSearchParams({
-            ua: 'Googlebot/2.1 (+http://www.google.com/bot.html)'
+            ua: 'Googlebot/2.1 (+http://www.google.com/bot.html)',
+            ip: '66.249.66.1'
         });
 
         const response = await fetch(`https://api.apiverve.com/v1/botdetector?${params}`, {
@@ -54,7 +55,7 @@ callBotDetectorAPI();
 ### Using cURL
 
 ```bash
-curl -X GET "https://api.apiverve.com/v1/botdetector?ua=Googlebot%2F2.1%20(%2Bhttp%3A%2F%2Fwww.google.com%2Fbot.html)" \
+curl -X GET "https://api.apiverve.com/v1/botdetector?ua=Googlebot%2F2.1%20(%2Bhttp%3A%2F%2Fwww.google.com%2Fbot.html)&ip=66.249.66.1" \
   -H "x-api-key: YOUR_API_KEY_HERE"
 ```
 
@@ -161,7 +162,7 @@ go get github.com/apiverve/botdetector-api/go
 
 ## Documentation
 
-- 🏠 **API Home:** [Bot Detector API](https://apiverve.com/marketplace/botdetector?utm_source&#x3D;github&amp;utm_medium&#x3D;readme)
+- 🏠 **API Home:** [Bot Detector API](https://apiverve.com/marketplace/botdetector?utm_source&#x3D;github&amp;utm_medium&#x3D;referral&amp;utm_content&#x3D;readme)
 - 📚 **API Reference:** [docs.apiverve.com/ref/botdetector](https://docs.apiverve.com/ref/botdetector)
 - 📖 **OpenAPI Spec:** [openapi.yaml](./openapi.yaml)
 - 💡 **Examples:** [examples/](./examples/)
@@ -221,6 +222,7 @@ A real response from the Bot Detector API:
       "shouldBlock": false
     },
     "isAutomated": true,
+    "verified": true,
     "riskScore": 0,
     "riskLevel": "low"
   }
@@ -231,7 +233,7 @@ A real response from the Bot Detector API:
 
 ## Support & Community
 
-- 🏠 **API Home**: [Bot Detector API](https://apiverve.com/marketplace/botdetector?utm_source&#x3D;github&amp;utm_medium&#x3D;readme)
+- 🏠 **API Home**: [Bot Detector API](https://apiverve.com/marketplace/botdetector?utm_source&#x3D;github&amp;utm_medium&#x3D;referral&amp;utm_content&#x3D;readme)
 - 💬 **Support**: [https://apiverve.com/contact](https://apiverve.com/contact)
 - 🐛 **Issues**: [GitHub Issues](../../issues)
 - 📖 **Documentation**: [https://docs.apiverve.com](https://docs.apiverve.com)

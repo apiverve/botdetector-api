@@ -21,7 +21,7 @@ servers:
 paths:
   /v1/botdetector:
     get:
-      summary: Check if User Agent is a Bot
+      summary: Bot Detector
       description: >-
         Analyzes a user agent string to determine if it belongs to a known bot
         or crawler, and returns detailed information about the bot type and
@@ -35,6 +35,16 @@ paths:
           required: true
           description: The user agent string to analyze (URL encoded)
           example: Googlebot/2.1 (+http://www.google.com/bot.html)
+        - name: ip
+          in: query
+          schema:
+            type: string
+          required: false
+          description: >-
+            Optional IP the request came from. When the user agent claims to be
+            a Google, Bing, OpenAI or Apple crawler, it is checked against that
+            operator's published IP ranges
+          example: 66.249.66.1
       responses:
         '200':
           description: Successful Response
@@ -65,6 +75,7 @@ paths:
                     reputation: trusted
                     shouldBlock: false
                   isAutomated: true
+                  verified: true
                   riskScore: 0
                   riskLevel: low
         '401':

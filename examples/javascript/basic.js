@@ -15,7 +15,8 @@ async function callBotDetectorAPI() {
   try {
     // Query parameters
     const params &#x3D; new URLSearchParams({
-            ua: &#x27;Googlebot/2.1 (+http://www.google.com/bot.html)&#x27;
+            ua: &#x27;Googlebot/2.1 (+http://www.google.com/bot.html)&#x27;,
+            ip: &#x27;66.249.66.1&#x27;
         });
 
     const response = await fetch(`${API_URL}?${params}`, {

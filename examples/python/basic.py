@@ -18,7 +18,7 @@ def call_botdetector_api():
     """
     try:
         # Query parameters
-        params &#x3D; {&#x27;ua&#x27;: &#x27;Googlebot/2.1 (+http://www.google.com/bot.html)&#x27;}
+        params &#x3D; {&#x27;ua&#x27;: &#x27;Googlebot/2.1 (+http://www.google.com/bot.html)&#x27;, &#x27;ip&#x27;: &#x27;66.249.66.1&#x27;}
 
         headers = {
             'x-api-key': API_KEY

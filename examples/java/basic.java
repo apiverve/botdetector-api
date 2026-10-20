@@ -15,6 +15,7 @@ public class BasicExample {
             // Query parameters
             Map&lt;String, Object&gt; parameters &#x3D; new HashMap&lt;&gt;();
         parameters.put(&quot;ua&quot;, &quot;Googlebot/2.1 (+http://www.google.com/bot.html)&quot;);
+        parameters.put(&quot;ip&quot;, &quot;66.249.66.1&quot;);
 
             // Execute the API request
             APIResponse response = client.execute(parameters);
