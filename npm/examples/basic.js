@@ -15,7 +15,8 @@ const api = new botdetectorAPI({
 
 // Example query
 var query = {
-  ua: "Googlebot/2.1 (+http://www.google.com/bot.html)"
+  ua: "Googlebot/2.1 (+http://www.google.com/bot.html)",
+  ip: "66.249.66.1"
 };
 
 // Make the API request using callback

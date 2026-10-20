@@ -29,6 +29,7 @@ declare module '@apiverve/botdetector' {
       isBot:       boolean | null;
       bot:         Bot;
       isAutomated: boolean | null;
+      verified:    boolean | null;
       riskScore:   number | null;
       riskLevel:   null | string;
   }

@@ -1,6 +1,6 @@
 {
   "name": "@apiverve/botdetector",
-  "version": "1.2.0",
+  "version": "1.2.2",
   "description": "Bot Detector analyzes user agent strings to identify bots, crawlers, and automated software. It matches against a database of known bots and adds heuristics that catch automated clients not in the database, returning the bot's category, reputation and a composite risk score. Useful for security, analytics, and access control.",
   "main": "index.js",
   "types": "index.d.ts",
@@ -23,7 +23,7 @@
     "directory": "npm"
   },
   "keywords": [
-    "bot detector", "crawler detector", "user agent check", "bot detection", "web crawler"
+    "bot detector", "bot detection api", "crawler detector", "user agent check", "bot detection"
   ],
   "author": {
     "name": "APIVerve",
@@ -34,7 +34,7 @@
   "bugs": {
     "url": "https://github.com/apiverve/botdetector-api/issues"
   },
-  "homepage": "https://apiverve.com/marketplace/botdetector?utm_source=npm&utm_medium=homepage",
+  "homepage": "https://apiverve.com/marketplace/botdetector?utm_source=npm&utm_medium=referral&utm_content=homepage",
   "devDependencies": {
     "mocha": "^11.0.1",
     "chai": "^5.1.2",

@@ -2,12 +2,9 @@
 
 Bot Detector analyzes user agent strings to identify bots, crawlers, and automated software. It matches against a database of known bots and adds heuristics that catch automated clients not in the database, returning the bot's category, reputation and a composite risk score. Useful for security, analytics, and access control.
 
-![Build Status](https://img.shields.io/badge/build-passing-green)
-![Code Climate](https://img.shields.io/badge/maintainability-B-purple)
-![Prod Ready](https://img.shields.io/badge/production-ready-blue)
 [![npm version](https://img.shields.io/npm/v/@apiverve/botdetector.svg)](https://www.npmjs.com/package/@apiverve/botdetector)
 
-This is a Javascript Wrapper for the [Bot Detector API](https://apiverve.com/marketplace/botdetector?utm_source=npm&utm_medium=readme)
+This is a JavaScript wrapper for the [Bot Detector API](https://apiverve.com/marketplace/botdetector?utm_source=npm&utm_medium=referral&utm_content=readme)
 
 ---
 
@@ -28,15 +25,15 @@ yarn add @apiverve/botdetector
 ## Configuration
 
 Before using the Bot Detector API client, you have to setup your account and obtain your API Key.
-You can get it by signing up at [https://apiverve.com](https://apiverve.com?utm_source=npm&utm_medium=readme)
+You can get it by signing up at [https://apiverve.com](https://apiverve.com?utm_source=npm&utm_medium=referral&utm_content=readme)
 
 ---
 
 ## Quick Start
 
-[Get started with the Quick Start Guide](https://docs.apiverve.com/quickstart?utm_source=npm&utm_medium=readme)
+[Get started with the Quick Start Guide](https://docs.apiverve.com/quickstart?utm_source=npm&utm_medium=referral&utm_content=readme)
 
-The Bot Detector API documentation is found here: [https://docs.apiverve.com/ref/botdetector](https://docs.apiverve.com/ref/botdetector?utm_source=npm&utm_medium=readme).
+The Bot Detector API documentation is found here: [https://docs.apiverve.com/ref/botdetector](https://docs.apiverve.com/ref/botdetector?utm_source=npm&utm_medium=referral&utm_content=readme).
 You can find parameters, example responses, and status codes documented here.
 
 ### Setup
@@ -60,7 +57,8 @@ Using the API is simple. All you have to do is make a request. The API will retu
 
 ```javascript
 var query = {
-  ua: "Googlebot/2.1 (+http://www.google.com/bot.html)"
+  ua: "Googlebot/2.1 (+http://www.google.com/bot.html)",
+  ip: "66.249.66.1"
 };
 
 api.execute(query, function (error, data) {
@@ -80,7 +78,8 @@ You can also use promises to make requests. The API returns a promise that you c
 
 ```javascript
 var query = {
-  ua: "Googlebot/2.1 (+http://www.google.com/bot.html)"
+  ua: "Googlebot/2.1 (+http://www.google.com/bot.html)",
+  ip: "66.249.66.1"
 };
 
 api.execute(query)
@@ -101,7 +100,8 @@ You can also use async/await to make requests. The API returns a promise that yo
 ```javascript
 async function makeRequest() {
     var query = {
-  ua: "Googlebot/2.1 (+http://www.google.com/bot.html)"
+  ua: "Googlebot/2.1 (+http://www.google.com/bot.html)",
+  ip: "66.249.66.1"
 };
 
     try {
@@ -132,6 +132,7 @@ async function makeRequest() {
       "shouldBlock": false
     },
     "isAutomated": true,
+    "verified": true,
     "riskScore": 0,
     "riskLevel": "low"
   }
@@ -142,7 +143,7 @@ async function makeRequest() {
 
 ## Customer Support
 
-Need any assistance? [Get in touch with Customer Support](https://apiverve.com/contact?utm_source=npm&utm_medium=readme).
+Need any assistance? [Get in touch with Customer Support](https://apiverve.com/contact?utm_source=npm&utm_medium=referral&utm_content=readme).
 
 ---
 
@@ -154,12 +155,12 @@ Stay up to date by following [@apiverveHQ](https://twitter.com/apiverveHQ) on Tw
 
 ## Legal
 
-All usage of the APIVerve website, API, and services is subject to the [APIVerve Terms of Service](https://apiverve.com/terms?utm_source=npm&utm_medium=readme), [Privacy Policy](https://apiverve.com/privacy?utm_source=npm&utm_medium=readme), and [Refund Policy](https://apiverve.com/refund?utm_source=npm&utm_medium=readme).
+All usage of the APIVerve website, API, and services is subject to the [APIVerve Terms of Service](https://apiverve.com/terms?utm_source=npm&utm_medium=referral&utm_content=readme) and [Privacy Policy](https://apiverve.com/privacy?utm_source=npm&utm_medium=referral&utm_content=readme).
 
 ---
 
 ## License
-Licensed under the The MIT License (MIT)
+Licensed under the MIT License (MIT)
 
 Copyright (&copy;) 2026 APIVerve, and EvlarSoft LLC
 
