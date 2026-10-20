@@ -67,7 +67,8 @@ namespace APIVerve.API.BotDetector
         /// <summary>Validation rules for parameters</summary>
         private static readonly Dictionary<string, ValidationRule> _validationRules = new Dictionary<string, ValidationRule>
         {
-            { "ua", new ValidationRule { Type = "string", Required = true } }
+            { "ua", new ValidationRule { Type = "string", Required = true } },
+            { "ip", new ValidationRule { Type = "string", Required = false, Format = "ip" } }
         };
 
         /// <summary>Format validation patterns</summary>

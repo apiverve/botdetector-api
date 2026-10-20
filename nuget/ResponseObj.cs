@@ -44,6 +44,9 @@ namespace APIVerve.API.BotDetector
         [JsonProperty("isAutomated")]
         public bool? IsAutomated { get; set; }
 
+        [JsonProperty("verified")]
+        public bool? Verified { get; set; }
+
         [JsonProperty("riskScore")]
         public long? RiskScore { get; set; }
 

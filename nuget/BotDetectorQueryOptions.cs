@@ -15,5 +15,11 @@ namespace APIVerve.API.BotDetector
         /// </summary>
         [JsonProperty("ua")]
         public string Ua { get; set; }
+
+        /// <summary>
+        /// Optional IP the request came from. When the user agent claims to be a Google, Bing, OpenAI or Apple crawler, it is checked against that operator's published IP ranges
+        /// </summary>
+        [JsonProperty("ip")]
+        public string Ip { get; set; }
     }
 }
