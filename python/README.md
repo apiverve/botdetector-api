@@ -1,13 +1,12 @@
 Bot Detector API
 ============
 
-Bot Detector is an API that analyzes user agent strings to identify bots, crawlers, and automated software. Useful for security, analytics, and access control.
+Bot Detector analyzes user agent strings to identify bots, crawlers, and automated software. It matches against a database of known bots and adds heuristics that catch automated clients not in the database, returning the bot's category, reputation and a composite risk score. Useful for security, analytics, and access control.
 
-![Build Status](https://img.shields.io/badge/build-passing-green)
-![Code Climate](https://img.shields.io/badge/maintainability-B-purple)
-![Prod Ready](https://img.shields.io/badge/production-ready-blue)
 
-This is a Python API Wrapper for the [Bot Detector API](https://apiverve.com/marketplace/botdetector?utm_source=pypi&utm_medium=readme)
+[![PyPI version](https://img.shields.io/pypi/v/apiverve-botdetector.svg)](https://pypi.org/project/apiverve-botdetector/)
+
+This is a Python wrapper for the [Bot Detector API](https://apiverve.com/marketplace/botdetector?utm_source=pypi&utm_medium=referral&utm_content=readme)
 
 ---
 
@@ -29,8 +28,8 @@ pip3 install apiverve-botdetector
 
 ## Configuration
 
-Before using the botdetector API client, you have to setup your account and obtain your API Key.
-You can get it by signing up at [https://apiverve.com](https://apiverve.com?utm_source=pypi&utm_medium=readme)
+Before using the Bot Detector API client, you have to setup your account and obtain your API Key.
+You can get it by signing up at [https://apiverve.com](https://apiverve.com?utm_source=pypi&utm_medium=referral&utm_content=readme)
 
 ---
 
@@ -44,7 +43,10 @@ from apiverve_botdetector.apiClient import BotdetectorAPIClient
 # Initialize the client with your APIVerve API key
 api = BotdetectorAPIClient("[YOUR_API_KEY]")
 
-query = { "ua": "Googlebot/2.1 (+http://www.google.com/bot.html)" }
+query = {
+    "ua": "Googlebot/2.1 (+http://www.google.com/bot.html)",
+    "ip": "66.249.66.1"
+}
 
 try:
     # Make the API call
@@ -60,7 +62,7 @@ except Exception as e:
 
 ## Usage
 
-The Bot Detector API documentation is found here: [https://docs.apiverve.com/ref/botdetector](https://docs.apiverve.com/ref/botdetector?utm_source=pypi&utm_medium=readme).
+The Bot Detector API documentation is found here: [https://docs.apiverve.com/ref/botdetector](https://docs.apiverve.com/ref/botdetector?utm_source=pypi&utm_medium=referral&utm_content=readme).
 You can find parameters, example responses, and status codes documented here.
 
 ### Setup
@@ -82,7 +84,10 @@ Using the API client, you can perform requests to the API.
 ###### Define Query
 
 ```python
-query = { "ua": "Googlebot/2.1 (+http://www.google.com/bot.html)" }
+query = {
+    "ua": "Googlebot/2.1 (+http://www.google.com/bot.html)",
+    "ip": "66.249.66.1"
+}
 ```
 
 ###### Simple Request
@@ -107,8 +112,14 @@ print(result)
     "bot": {
       "name": "Googlebot",
       "category": "search_engine",
-      "url": "http://www.google.com/bot.html"
-    }
+      "url": "http://www.google.com/bot.html",
+      "reputation": "trusted",
+      "shouldBlock": false
+    },
+    "isAutomated": true,
+    "verified": true,
+    "riskScore": 0,
+    "riskLevel": "low"
   }
 }
 ```
@@ -126,7 +137,10 @@ from apiverve_botdetector.apiClient import BotdetectorAPIClient, BotdetectorAPIC
 
 api = BotdetectorAPIClient("[YOUR_API_KEY]")
 
-query = { "ua": "Googlebot/2.1 (+http://www.google.com/bot.html)" }
+query = {
+    "ua": "Googlebot/2.1 (+http://www.google.com/bot.html)",
+    "ip": "66.249.66.1"
+}
 
 try:
     result = api.execute(query)
@@ -147,7 +161,10 @@ from apiverve_botdetector.apiClient import BotdetectorAPIClient, BotdetectorAPIC
 
 api = BotdetectorAPIClient("[YOUR_API_KEY]")
 
-query = { "ua": "Googlebot/2.1 (+http://www.google.com/bot.html)" }
+query = {
+    "ua": "Googlebot/2.1 (+http://www.google.com/bot.html)",
+    "ip": "66.249.66.1"
+}
 
 try:
     result = api.execute(query)
@@ -181,7 +198,10 @@ The client supports the context manager protocol for automatic resource cleanup:
 ```python
 from apiverve_botdetector.apiClient import BotdetectorAPIClient, BotdetectorAPIClientError
 
-query = { "ua": "Googlebot/2.1 (+http://www.google.com/bot.html)" }
+query = {
+    "ua": "Googlebot/2.1 (+http://www.google.com/bot.html)",
+    "ip": "66.249.66.1"
+}
 
 # Using context manager ensures proper cleanup
 with BotdetectorAPIClient("[YOUR_API_KEY]") as api:
@@ -207,7 +227,10 @@ from apiverve_botdetector.apiClient import BotdetectorAPIClient
 # Enable debug mode
 api = BotdetectorAPIClient("[YOUR_API_KEY]", debug=True)
 
-query = { "ua": "Googlebot/2.1 (+http://www.google.com/bot.html)" }
+query = {
+    "ua": "Googlebot/2.1 (+http://www.google.com/bot.html)",
+    "ip": "66.249.66.1"
+}
 
 # Debug information will be printed to console
 result = api.execute(query)
@@ -222,7 +245,10 @@ from apiverve_botdetector.apiClient import BotdetectorAPIClient
 
 api = BotdetectorAPIClient("[YOUR_API_KEY]")
 
-query = { "ua": "Googlebot/2.1 (+http://www.google.com/bot.html)" }
+query = {
+    "ua": "Googlebot/2.1 (+http://www.google.com/bot.html)",
+    "ip": "66.249.66.1"
+}
 
 try:
     result = api.execute(query)
@@ -236,7 +262,7 @@ finally:
 
 ## Customer Support
 
-Need any assistance? [Get in touch with Customer Support](https://apiverve.com/contact?utm_source=pypi&utm_medium=readme).
+Need any assistance? [Get in touch with Customer Support](https://apiverve.com/contact?utm_source=pypi&utm_medium=referral&utm_content=readme).
 
 ---
 
@@ -247,12 +273,12 @@ Stay up to date by following [@apiverveHQ](https://twitter.com/apiverveHQ) on Tw
 
 ## Legal
 
-All usage of the APIVerve website, API, and services is subject to the [APIVerve Terms of Service](https://apiverve.com/terms?utm_source=pypi&utm_medium=readme) and all legal documents and agreements.
+All usage of the APIVerve website, API, and services is subject to the [APIVerve Terms of Service](https://apiverve.com/terms?utm_source=pypi&utm_medium=referral&utm_content=readme) and all legal documents and agreements.
 
 ---
 
 ## License
-Licensed under the The MIT License (MIT)
+Licensed under the MIT License (MIT)
 
 Copyright (&copy;) 2026 APIVerve, and EvlarSoft LLC
 

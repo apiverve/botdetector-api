@@ -1,6 +1,6 @@
 import re
-from typing import Dict, Optional, Any
-from dataclasses import dataclass, List
+from typing import Dict, Optional, Any, List
+from dataclasses import dataclass
 import requests
 
 
@@ -24,7 +24,8 @@ class ValidationError(BotdetectorAPIClientError):
 class BotdetectorAPIClient:
     # Validation rules for parameters (generated from schema)
     VALIDATION_RULES = {
-        "ua": {"type": "string", "required": True, "format": "url"}
+        "ua": {"type": "string", "required": True},
+        "ip": {"type": "string", "required": False, "format": "ip"}
     }
 
     # Format validation patterns
