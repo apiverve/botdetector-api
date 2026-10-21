@@ -15,11 +15,11 @@ use APIVerve\Botdetector\Exceptions\ValidationException;
  * @example Basic usage
  * ```php
  * $client = new Client('your_api_key');
- * $response = $client->execute(['ua' => 'Googlebot/2.1 (+http://www.google.com/bot.html)']);
+ * $response = $client->execute(['ua' => 'Googlebot/2.1 (+http://www.google.com/bot.html)', 'ip' => '66.249.66.1']);
  * print_r($response);
  * ```
  *
- * @see https://apiverve.com/marketplace/botdetector?utm_source=php&utm_medium=readme
+ * @see https://apiverve.com/marketplace/botdetector?utm_source=php&utm_medium=referral&utm_content=readme
  */
 class Client
 {
@@ -34,7 +34,8 @@ class Client
      * Validation rules for parameters
      */
     private const VALIDATION_RULES = [
-        'ua' => ['type' => 'string', 'required' => true]
+        'ua' => ['type' => 'string', 'required' => true],
+        'ip' => ['type' => 'string', 'required' => false, 'format' => 'ip']
     ];
 
     /**

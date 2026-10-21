@@ -27,7 +27,10 @@ use APIVerve\Botdetector\Client;
 $client = new Client('YOUR_API_KEY');
 
 // Make a request
-$response = $client->execute(['ua' => 'Googlebot/2.1 (+http://www.google.com/bot.html)']);
+$response = $client->execute([
+    'ua' => 'Googlebot/2.1 (+http://www.google.com/bot.html)',
+    'ip' => '66.249.66.1'
+]);
 
 // Print the response
 print_r($response);
@@ -42,7 +45,7 @@ use APIVerve\Botdetector\Exceptions\APIException;
 use APIVerve\Botdetector\Exceptions\ValidationException;
 
 try {
-    $response = $client->execute(['ua' => 'Googlebot/2.1 (+http://www.google.com/bot.html)']);
+    $response = $client->execute(['ua' => 'Googlebot/2.1 (+http://www.google.com/bot.html)', 'ip' => '66.249.66.1']);
     print_r($response['data']);
 } catch (ValidationException $e) {
     echo "Validation error: " . implode(', ', $e->getErrors());
@@ -79,6 +82,7 @@ $client = new Client(
       "shouldBlock": false
     },
     "isAutomated": true,
+    "verified": true,
     "riskScore": 0,
     "riskLevel": "low"
   }
@@ -92,11 +96,11 @@ $client = new Client(
 
 ## Documentation
 
-For more information, visit the [API Documentation](https://docs.apiverve.com/ref/botdetector?utm_source=packagist&utm_medium=readme).
+For more information, visit the [API Documentation](https://docs.apiverve.com/ref/botdetector?utm_source=packagist&utm_medium=referral&utm_content=readme).
 
 ## Support
 
-- Website: [https://apiverve.com/marketplace/botdetector?utm_source=php&utm_medium=readme](https://apiverve.com/marketplace/botdetector?utm_source=php&utm_medium=readme)
+- Website: [https://apiverve.com/marketplace/botdetector?utm_source=php&utm_medium=referral&utm_content=readme](https://apiverve.com/marketplace/botdetector?utm_source=php&utm_medium=referral&utm_content=readme)
 - Email: hello@apiverve.com
 
 ## License
