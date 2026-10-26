@@ -1,6 +1,6 @@
 {
   "name": "@apiverve/botdetector",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "Bot Detector analyzes user agent strings to identify bots, crawlers, and automated software. It matches against a database of known bots and adds heuristics that catch automated clients not in the database, returning the bot's category, reputation and a composite risk score. Useful for security, analytics, and access control.",
   "main": "index.js",
   "types": "index.d.ts",
