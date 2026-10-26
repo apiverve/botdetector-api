@@ -1,11 +1,11 @@
 # Bot Detector API - Dart/Flutter Client
 
-Bot Detector is an API that analyzes user agent strings to identify bots, crawlers, and automated software. Useful for security, analytics, and access control.
+Bot Detector analyzes user agent strings to identify bots, crawlers, and automated software. It matches against a database of known bots and adds heuristics that catch automated clients not in the database, returning the bot's category, reputation and a composite risk score. Useful for security, analytics, and access control.
 
 [![pub package](https://img.shields.io/pub/v/apiverve_botdetector.svg)](https://pub.dev/packages/apiverve_botdetector)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-This is the Dart/Flutter client for the [Bot Detector API](https://apiverve.com/marketplace/botdetector?utm_source=dart&utm_medium=readme).
+This is the Dart/Flutter client for the [Bot Detector API](https://apiverve.com/marketplace/botdetector?utm_source=dart&utm_medium=referral&utm_content=readme).
 
 ## Installation
 
@@ -13,7 +13,7 @@ Add this to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  apiverve_botdetector: ^1.1.14
+  apiverve_botdetector: ^1.2.3
 ```
 
 Then run:
@@ -34,7 +34,8 @@ void main() async {
 
   try {
     final response = await client.execute({
-      'ua': 'Googlebot/2.1 (+http://www.google.com/bot.html)'
+      'ua': 'Googlebot/2.1 (+http://www.google.com/bot.html)',
+      'ip': '66.249.66.1'
     });
 
     print('Status: ${response.status}');
@@ -57,20 +58,26 @@ void main() async {
     "bot": {
       "name": "Googlebot",
       "category": "search_engine",
-      "url": "http://www.google.com/bot.html"
-    }
+      "url": "http://www.google.com/bot.html",
+      "reputation": "trusted",
+      "shouldBlock": false
+    },
+    "isAutomated": true,
+    "verified": true,
+    "riskScore": 0,
+    "riskLevel": "low"
   }
 }
 ```
 
 ## API Reference
 
-- **API Home:** [Bot Detector API](https://apiverve.com/marketplace/botdetector?utm_source=dart&utm_medium=readme)
-- **Documentation:** [docs.apiverve.com/ref/botdetector](https://docs.apiverve.com/ref/botdetector?utm_source=dart&utm_medium=readme)
+- **API Home:** [Bot Detector API](https://apiverve.com/marketplace/botdetector?utm_source=dart&utm_medium=referral&utm_content=readme)
+- **Documentation:** [docs.apiverve.com/ref/botdetector](https://docs.apiverve.com/ref/botdetector?utm_source=dart&utm_medium=referral&utm_content=readme)
 
 ## Authentication
 
-All requests require an API key. Get yours at [apiverve.com](https://apiverve.com?utm_source=dart&utm_medium=readme).
+All requests require an API key. Get yours at [apiverve.com](https://apiverve.com?utm_source=dart&utm_medium=referral&utm_content=readme).
 
 ## License
 
@@ -78,4 +85,4 @@ MIT License - see [LICENSE](LICENSE) for details.
 
 ---
 
-Built with Dart for [APIVerve](https://apiverve.com?utm_source=dart&utm_medium=readme)
+Built with Dart for [APIVerve](https://apiverve.com?utm_source=dart&utm_medium=referral&utm_content=readme)

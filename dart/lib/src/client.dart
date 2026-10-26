@@ -46,10 +46,11 @@ final _formatPatterns = {
 
 /// Bot Detector API client.
 ///
-/// For more information, visit: https://apiverve.com/marketplace/botdetector?utm_source=dart&utm_medium=readme
+/// For more information, visit: https://apiverve.com/marketplace/botdetector?utm_source=dart&utm_medium=referral&utm_content=readme
 ///
 /// Parameters:
-/// * [ua] (required) - The user agent string to analyze (URL encoded) [format: url]
+/// * [ua] (required) - The user agent string to analyze (URL encoded)
+/// * [ip] - Optional IP the request came from. When the user agent claims to be a Google, Bing, OpenAI or Apple crawler, it is checked against that operator's published IP ranges [format: ip]
 class BotdetectorClient {
   final String apiKey;
   final String baseUrl;
@@ -57,7 +58,8 @@ class BotdetectorClient {
 
   /// Validation rules for parameters.
   static final Map<String, ValidationRule> _validationRules = <String, ValidationRule>{
-    'ua': ValidationRule(type: 'string', required: true, format: 'url'),
+    'ua': ValidationRule(type: 'string', required: true),
+    'ip': ValidationRule(type: 'string', required: false, format: 'ip'),
   };
 
   BotdetectorClient(this.apiKey, {
